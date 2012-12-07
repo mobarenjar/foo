@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの勉強</title>
+</head>
+<body>
+    <h1>JavaScriptの勉強</h1>
+    <p>僕の名前は<span id="myName">@taguchi</span>です！</p>
+    <p>価格: <input type="text" id="price">円</p>
+    <font id="f1" size="3" color="black"">
+    	色変更<br>
+    </font>
+    <font id="f2" size="3" color="black"">
+    	フォントサイズ変更<br>
+    </font>
+    <p><input type="button" value="変更！" id="myButton"></p>
+    <p></p>
+    <h1>1.サイコロプログラムを動作させてみよう</h1>
+    <p><input type="submit" id="saikoro" value="サイコロふりふり！"></p>
+    <p>サイコロ①値：<span id="value">@value</span>です！</p>
+    <script>
+        // ボタンの振る舞い
+        var e = document.getElementById('myButton');
+        e.onclick = function () {
+            alert("値が変更されます！");
+        
+            // 名前
+            var name = document.getElementById('myName');
+            name.innerHTML = 'にしぐち';
+    	
+            // 価格
+            var price  = document.getElementById('price');
+            // 数値に関する演算子 + - * /
+    		var x = 5 / 5;
+    		var x = 5 % 5; // 余り
+    		var x = 1;
+    		x++; // x = x + 1;
+    		x--;
+    		x *= 5; // x = x * 5;
+            price.value = x;
+            
+            // 色
+            var c = document.getElementById("f1");
+            c.color = "bule";
+            
+            // 文字サイズ
+            var d = document.getElementById("f2");
+            d.size = "6";
+        }
+        
+        // サイコロの振る舞い
+        var s = document.getElementById('saikoro');
+        s.onclick = function () {
+            var value = document.getElementById('value');
+            // var time = Math.round (Math.random () * 5) + 1;
+            value.innerHTML = mathRandom();
+        }
+        
+        function mathRandom() {
+            return Math.round (Math.random () * 5) + 1;
+        }
+        
+        // タイマー処理
+        // setTimeout: 一定時間後になにかする
+        setTimeout(function () {
+            console.log("2秒たちました！");
+        }, 2000);
+        
+        // setInterval: 一定周期ごとに何かする
+        var i = 0;
+        setInterval(function () {
+            console.log(i);
+            i++;
+        }, 1000);
+    </script>
+</body>
+</html>
